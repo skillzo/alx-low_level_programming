@@ -1,17 +1,20 @@
 #include "main.h"
 
 /**
- * more_numbers - print 0 to 9 ten times
+ * print_ most_numbers - print the numbers since 0 up to 9
+ * Description: Prints the number excluding 2 and 4
+ * Return: The numbers since 0 up to 9
  */
 
 void print_most_numbers(void)
+
 {
 
 	int x = 0;
 
 	for(; x <= 9; x++)
 	{
-	if (x == 2 || x ++ 4)
+	if (x == 2 || x == 4)
 	{
 	continue;
 	}
