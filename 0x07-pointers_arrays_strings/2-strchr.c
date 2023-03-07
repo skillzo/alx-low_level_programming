@@ -1,31 +1,20 @@
 #include "main.h"
+#include <stdio.h>
 
 /**
- * _strspn - return length of string that matches values consistently
- * @s: string to search
- * @accept: target matches
- * Return: number of bytes consecutively matched
+ * print_diagsums -  prints sums
+ * @a: a pointer
+ * @size: size
  */
-
-unsigned int _strspn(char *s, char *accept)
+void print_diagsums(int *a, int size)
 {
-	int i = 0, j;
-	int matches = 0;
+	int i, sum1 = 0, sum2 = 0;
 
-	while (s[i] != '\0') /*iterate through string*/
+	for (i = 0; i < size; i++)
 	{
-
-		for (j = 0; accept[j] != '\0'; j++) /*iterate through target*/
-		{
-			if (s[i] == accept[j]) /*record & break at first match*/
-			{
-				matches++;
-				break;
-			}
-			if (accept[j + 1] == '\0' && s[i] != accept[j])
-				return (matches);/*return if idx doesn't match*/
-		}
-		i++;
+		sum1 += *(a + (size * i + i));
+		sum2 += *(a + (size * i + size - 1 - i));
 	}
-	return (matches); /* return num if all match till end */
+	printf("%d, ", sum1);
+	printf("%d\n", sum2);
 }
